@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لـ فاطمة الزهراء ❤️ من مروان</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Naskh Arabic', serif;
+            background: linear-gradient(45deg, #ff1744, #e91e63, #9c27b0, #673ab7, #3f51b5);
+            background-size: 300% 300%;
+            animation: gradientShift 8s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card {
+            width: min(90vw, 600px);
+            height: min(85vh, 750px);
+            cursor: pointer;
+            transition: transform 0.6s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: scale(1.02) translateY(-5px);
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(255, 20, 147, 0.3);
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            overflow-y: auto;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(255, 182, 193, 0.9) 50%,
+                rgba(255, 20, 147, 0.8) 100%);
+            backdrop-filter: blur(20px);
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, 
+                rgba(220, 20, 60, 0.95) 0%,
+                rgba(255, 20, 147, 0.9) 50%,
+                rgba(199, 21, 133, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            color: white;
+        }
+
+        .card-front::-webkit-scrollbar, .card-back::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .card-front::-webkit-scrollbar-track, .card-back::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .card-front::-webkit-scrollbar-thumb, .card-back::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff1744, #e91e63);
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #8b0000;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(139, 0, 0, 0.5); }
+            to { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(139, 0, 0, 0.8); }
+        }
+
+        .front-text {
+            color: #8b0000;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            line-height: 1.6;
+            font-family: 'Cairo', sans-serif;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .click-text {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            color: #dc143c;
+            animation: pulse 2s infinite;
+            margin-top: 30px;
+            font-weight: 700;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .back-text {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            line-height: 1.8;
+            font-family: 'Noto Naskh Arabic', serif;
+            margin: 10px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 700;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .heart-animation {
+            position: fixed;
+            font-size: 2rem;
+            color: #ff1744;
+            pointer-events: none;
+            z-index: 5;
+            animation: heartFloat 4s ease-out forwards;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(0) scale(0.5) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(-20px) scale(1) rotate(10deg);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(-80vh) scale(1.2) rotate(350deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(0.8) rotate(360deg);
+            }
+        }
+
+        .sparkle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 3;
+            animation: sparkleAnimation 3s ease-out forwards;
+        }
+
+        @keyframes sparkleAnimation {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1) rotate(180deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 95vw;
+                height: 90vh;
+            }
+            
+            .card-front, .card-back {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 98vw;
+                height: 95vh;
+            }
+            
+            .card-front, .card-back {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <div class="card-container">
+        <div class="card" id="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h1>❤️ لـ فاطمة الزهراء ❤️</h1>
+                    <p class="front-text">من المهندس الذي يحبكِ</p>
+                    <p class="click-text">اضغطي لفتح رسالتي القلبية لكِ! 💕</p>
+                </div>
+                <div class="card-back">
+                    <p class="back-text">
+                        يا حبيبتي فاطمة الزهراء، أنتِ الوردة التي تتفتح في حديقة قلبي كل يوم، والنور الذي يضيء عتمة أيامي. منذ أن دخلتِ حياتي، أصبح كل شيء أجمل، كأن العالم توقف للحظة ليمنحني فرصة النظر إلى عينيكِ اللتين تحملان كل أحلامي وآمالي.
+                    </p>
+                    <p class="back-text">
+                        أتذكر كل لحظة قضيناها معًا، من الضحكات التي ملأت الهواء في ليالي الصيف الدافئة، إلى الهمسات الهادئة تحت ضوء القمر، إلى اللحظات التي كنا فيها نتبادل الأحلام والطموحات. كل ذكرى معكِ هي كنز ثمين أحمله في قلبي، وكل نظرة منكِ هي شرارة تضيء روحي.
+                    </p>
+                    <p class="back-text">
+                        حبكِ يا فاطمة هو الدافع الذي يجعلني أسعى لأكون رجلًا أفضل، رجلًا يستحق أن يكون بجانبكِ. أعدكِ بأن أكون لكِ السند والحبيب والصديق، أشارككِ كل لحظاتكِ، أفراحكِ وأحزانكِ، أحلامكِ الصغيرة والكبيرة.
+                    </p>
+                    <p class="back-text">
+                        أنتِ لستِ مجرد حبيبتي، بل أنتِ عالمي بأكمله، الشمس التي تشرق في صباحي والنجمة التي تهديني في ليلي. أحبكِ بكل ما أملك من مشاعر، وأشكر الله كل يوم لأنه جمعني بكِ.
+                    </p>
+                    <p class="signature">إلى الأبد معكِ  ❤️</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create twinkling stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                star.style.animationDuration = Math.random() * 3 + 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Create floating hearts background
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('floatingHearts');
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💖';
+                heart.style.position = 'absolute';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.bottom = '-50px';
+                heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+                heart.style.opacity = '0.3';
+                heart.style.pointerEvents = 'none';
+                heart.style.animation = `heartFloat ${Math.random() * 3 + 4}s ease-out forwards`;
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 7000);
+            }, 1000);
+        }
+
+        // Enhanced heart explosion when card is clicked
+        function createHeartExplosion(x, y) {
+            const heartTypes = ['❤️', '💕', '💖', '💗', '💘', '💝', '💞', '💟'];
+            
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-animation';
+                heart.innerHTML = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+                
+                const angle = (i / 30) * Math.PI * 2;
+                const distance = Math.random() * 100 + 50;
+                const startX = x + Math.cos(angle) * distance;
+                const startY = y + Math.sin(angle) * distance;
+                
+                heart.style.left = startX + 'px';
+                heart.style.top = startY + 'px';
+                heart.style.fontSize = Math.random() * 1.5 + 1 + 'rem';
+                heart.style.animationDelay = Math.random() * 0.5 + 's';
+                heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+                
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+
+        // Create sparkles
+        function createSparkles(x, y) {
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = x + Math.random() * 100 - 50 + 'px';
+                sparkle.style.top = y + Math.random() * 100 - 50 + 'px';
+                sparkle.style.animationDelay = Math.random() * 0.5 + 's';
+                
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 3000);
+            }
+        }
+
+        // Card click event
+        const card = document.getElementById('card');
+        let isFlipped = false;
+
+        card.addEventListener('click', (e) => {
+            if (!isFlipped) {
+                card.classList.add('flipped');
+                isFlipped = true;
+                
+                const rect = card.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                createHeartExplosion(centerX, centerY);
+                createSparkles(centerX, centerY);
+            }
+        });
+
+        // Initialize animations
+        createStars();
+        createFloatingHearts();
+
+        // Add continuous sparkle effects
+        setInterval(() => {
+            if (isFlipped) {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                createSparkles(x, y);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
